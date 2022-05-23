@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Get FizzBuzz Result</h1>
+    <!-- Form untuk menampung data -->
+    Type a number: 
+    <input type="text" name="number" id="number">
+    <button type="button">Click here!</button>
+    <hr>
+    <!-- Hasil -->
+    <div id="result">
+    <!-- Hasil cetak disini -->
+    </div>
+
+    <!-- Code JS -->
+    <script>
+        const tombol = document.querySelector('button');
+
+        // Jika tombol diklik, maka akan menjalankan fungsi
+        tombol.addEventListener('click', function() {
+            const nomor = document.getElementById('number');
+            const hasilnya = document.createElement('p');
+            // console.log(nomor.value);
+
+            // Jika input angka kosong atau undefined cetak pesan invalid input
+            if (nomor.value === "0" || nomor.value === undefined ||
+            nomor.value === "") {
+                hasilnya.innerHTML = 'Invalid input';
+            } else {
+                // Jika input tidak kosong, mulai hitung fizzbuzz
+                if (nomor.value % 3 === 0 && nomor.value % 5 === 0) {
+                    hasilnya.innerHTML = 'FizzBuzz';
+                } else if (nomor.value % 3 === 0) {
+                    hasilnya.innerHTML = 'Fizz';
+                } else if (nomor.value % 5 === 0) {
+                    hasilnya.innerHTML = 'Buzz';
+                } else {
+                    hasilnya.innerHTML = nomor.value;
+                }
+            }
+            // hasilnya.innerHTML = nomor.value;
+            document.getElementById('result').appendChild(hasilnya);
+        });
+    </script>
+</body>
+</html>
